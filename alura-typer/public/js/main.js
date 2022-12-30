@@ -23,7 +23,7 @@ campo.on("input", () => {
 
   // campo.val('a') //Também adiciona valor nos inputs
 });
-
+    
 var tempoRestante = $("#contador-tempo").text();
 // campo.on("focus", () => {
 campo.one("focus", () => {  //Executa apenas uma vez = once: true no javascrip, document.getElementById('btn').addEventListener('click', () => {console.log('Hello and goodbye');}, {once: true,});
