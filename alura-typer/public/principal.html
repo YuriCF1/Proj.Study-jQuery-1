@@ -4,19 +4,29 @@
     <meta charset="UTF-8" />
     <title>Alura Typer</title>
     <link rel="stylesheet" href="css/libs/materialize.min.css" />
-    <link rel="stylesheet" href="css/estilos.css"/>
+    <link rel="stylesheet" href="css/estilos.css" />
+    <link rel="stylesheet" href="css/libs/google-fonts.css" />
   </head>
   <body>
     <div class="container">
       <h1 class="center">Alura Typer</h1>
       <p class="frase center">Tem bem umas 7 lindas palavras</p>
       <ul class="informacoes center">
-        <li><span id="tamanho-frase">5</span> Palavras</li>
+        <li>
+          <i class="small material-icons icons">description</i>
+          <span id="tamanho-frase">5</span> Palavras
+        </li>
         <!-- Mostrando a quantidade de pelavras da frase-->
-        <li><span id="contador-tempo">2</span> Segundos</li>
+        <li>
+          <i class="small material-icons icons">query_builder</i>
+          <span id="contador-tempo">2</span> Segundos
+        </li>
       </ul>
       <textarea class="campo-digitacao" name="" cols="30" rows="10"></textarea>
-      <button id="btn-reinicia">Reiniciar jogo</button>
+      <div class="botoes">
+        <a id="btn-reinicia" class="btn-floating btn-large waves-effect waves-light red"><i class="material-icons">restore</i></a>
+      </div>
+      <!-- <button id="btn-reinicia">Reiniciar jogo</button> -->
       <ul class="center">
         <li><span id="contador-caracteres">0</span> Caracteres</li>
         <li><span id="contador-palavras">0</span> Palavras</li>

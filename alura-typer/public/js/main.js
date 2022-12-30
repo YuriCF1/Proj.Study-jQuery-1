@@ -57,7 +57,8 @@ function inicializaCronometro() {
         $("#btn-reinicia").attr('disabled', false);
 
         // campo.css("background-color","lightgray") //Pode fazer assim, mas é errado mudar css no JS
-        campo.addClass("campo-desativado")
+        // campo.addClass("campo-desativado")
+        campo.toggleClass("campo-desativado") //Desliga e liga a classe. Em JS= .classList.toggle('hidden-phone')
       }
       // campo.attr("rows", 50) //Colocando o dado
     }, 1000);
@@ -65,13 +66,14 @@ function inicializaCronometro() {
 }
 
 // $('#btn-reinicia').on('click', () => {
-//   console.log('clicado');
-// })
-
-function reiniciaJogo() {
-  campo.attr("disabled", false);
-  campo.val("");
-  campo.removeClass("campo-desativado")
+  //   console.log('clicado');
+  // })
+  
+  function reiniciaJogo() {
+    campo.attr("disabled", false);
+    campo.val("");
+    // campo.removeClass("campo-desativado")
+    campo.toggleClass("campo-desativado")
 
   $("#contador-palavras").text("0");
   $("#contador-caracteres").text("0");
