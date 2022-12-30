@@ -42,6 +42,8 @@ function incializaContadores() {
 
 function inicializaCronometro() {
   var tempoRestante = $("#contador-tempo").text();
+  $("#btn-reinicia").attr('disabled', true);
+
   // campo.on("focus", () => {
   campo.one("focus", () => {
     //Executa apenas uma vez = once: true no javascrip, document.getElementById('btn').addEventListener('click', () => {console.log('Hello and goodbye');}, {once: true,});
@@ -52,6 +54,10 @@ function inicializaCronometro() {
       if (tempoRestante < 1) {
         campo.attr("disabled", true); // attr = setAttribute() e getAttribute()  || Já que o 'disabled' não tem valor, tenho que dizer que agora irá existir
         clearInterval(cronometroID);
+        $("#btn-reinicia").attr('disabled', false);
+
+        // campo.css("background-color","lightgray") //Pode fazer assim, mas é errado mudar css no JS
+        campo.addClass("campo-desativado")
       }
       // campo.attr("rows", 50) //Colocando o dado
     }, 1000);
@@ -65,6 +71,7 @@ function inicializaCronometro() {
 function reiniciaJogo() {
   campo.attr("disabled", false);
   campo.val("");
+  campo.removeClass("campo-desativado")
 
   $("#contador-palavras").text("0");
   $("#contador-caracteres").text("0");
