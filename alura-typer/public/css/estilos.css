@@ -23,3 +23,7 @@
 .icons {
     vertical-align: middle;
 }
+
+.btn-remover {
+    cursor: pointer;
+}
