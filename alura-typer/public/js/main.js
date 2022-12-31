@@ -46,20 +46,28 @@ function inicializaBordas() {
   var frase = $(".frase").text();
   campo.on("input", () => {
     var digitado = campo.val();
-    var comparavel = frase.substr(0, digitado.length); //Parte da frase com o mesmo numero de caracteres que foi digitado
+    // var comparavel = frase.substr(0, digitado.length); //Parte da frase com o mesmo numero de caracteres que foi digitado
+    
+    // var ehCorreto = (digitado == comparavel);
+    var digitouCorreto = frase.startsWith(digitado); //Jeito mais atual de comparar se uma string está igual a outra, no ECMA6
+    campo.toggleClass("borda-verde", digitouCorreto);
+    campo.toggleClass("borda-vermelha", !digitouCorreto);
 
-    if (digitado == comparavel) {
-      campo.addClass("borda-verde");
-      campo.removeClass("borda-vermelha");
-    } else {
-      campo.removeClass("borda-verde");
-      campo.addClass("borda-vermelha");
-    }
+    //Acima, com o comparável e ehCorreto, é a mesma coisa do IF abaixo
+    // if (digitado == comparavel) {
+    //   campo.addClass("borda-verde");
+    //   campo.removeClass("borda-vermelha");
+    // } else {
+    //   campo.removeClass("borda-verde");
+    //   campo.addClass("borda-vermelha");
+    // }
 
     if (digitado == "") {
       campo.removeClass("borda-verde");
       campo.removeClass("borda-vermelha");
     }
+
+
   });
 }
 
