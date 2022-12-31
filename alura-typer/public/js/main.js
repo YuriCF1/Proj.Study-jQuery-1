@@ -47,7 +47,7 @@ function inicializaBordas() {
   campo.on("input", () => {
     var digitado = campo.val();
     // var comparavel = frase.substr(0, digitado.length); //Parte da frase com o mesmo numero de caracteres que foi digitado
-    
+
     // var ehCorreto = (digitado == comparavel);
     var digitouCorreto = frase.startsWith(digitado); //Jeito mais atual de comparar se uma string está igual a outra, no ECMA6
     campo.toggleClass("borda-verde", digitouCorreto);
@@ -66,8 +66,6 @@ function inicializaBordas() {
       campo.removeClass("borda-verde");
       campo.removeClass("borda-vermelha");
     }
-
-
   });
 }
 
@@ -83,15 +81,9 @@ function inicializaCronometro() {
       $("#contador-tempo").text(tempoRestante);
 
       if (tempoRestante < 1) {
-        campo.attr("disabled", true); // attr = setAttribute() e getAttribute()  || Já que o 'disabled' não tem valor, tenho que dizer que agora irá existir
         clearInterval(cronometroID);
-        $("#btn-reinicia").attr("disabled", false);
-
-        // campo.css("background-color","lightgray") //Pode fazer assim, mas é errado mudar css no JS
-        // campo.addClass("campo-desativado")
-        campo.toggleClass("campo-desativado"); //Desliga e liga a classe. Em JS= .classList.toggle('hidden-phone')
+        finalizaJogo();
       }
-      // campo.attr("rows", 50) //Colocando o dado
     }, 1000);
   });
 }
@@ -113,4 +105,30 @@ function reiniciaJogo() {
 
   campo.removeClass("borda-verde");
   campo.removeClass("borda-vermelha");
+}
+
+// _________________________________ENDING GAME_________________________________
+function finalizaJogo() {
+  campo.attr("disabled", true); // attr = setAttribute() e getAttribute()  || Já que o 'disabled' não tem valor, tenho que dizer que agora irá existir
+  $("#btn-reinicia").attr("disabled", false);
+
+  // campo.css("background-color","lightgray") //Pode fazer assim, mas é errado mudar css no JS
+  // campo.addClass("campo-desativado")
+  campo.toggleClass("campo-desativado"); //Desliga e liga a classe. Em JS= .classList.toggle('hidden-phone')
+  inserePlacar();
+  // campo.attr("rows", 50) //Colocando o dado
+}
+
+function inserePlacar() {
+  var corpoTabela = $(".placar").find("tbody"); //find = procura dentro dos nós do DOM = querySelector dentro de outro querySelector
+  var usuario = "Yurii";
+  var numPalavras = $("#contador-palavras").text();
+
+  var linha = `<tr>
+  <td>${usuario}</td>
+  <td>${numPalavras}</td>
+  </tr>`;
+
+  // corpoTabela.prepend(linha) //Coloca no começo
+  corpoTabela.append(linha)
 }
