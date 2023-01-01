@@ -5,6 +5,7 @@
 var tempoInicial = $("#contador-tempo").text();
 var campo = $(".campo-digitacao");
 
+// __________________________Começa as funções no carregamento da página
 // $(document).ready(() => {} //Mesma coisa do atalho abaixo = Carregar quando o html for baixado
 $(function () {
   atualizaTamanhoFrase();
@@ -16,14 +17,14 @@ $(function () {
   inicializaBordas();
 });
 
-function atualizaTamanhoFrase() {
-  var frase = $(".frase").text();
-  var numPalavras = frase.split(" ").length;
-  var tamanhoFrase = $("#tamanho-frase");
+// function atualizaTamanhoFrase() {
+//   var frase = $(".frase").text();
+//   var numPalavras = frase.split(" ").length;
+//   var tamanhoFrase = $("#tamanho-frase");
 
-  // tamanhoFrase.text() Diz o que está escrito
-  tamanhoFrase.text(numPalavras); //Muda o que está escrito
-}
+//   // tamanhoFrase.text() Diz o que está escrito
+//   tamanhoFrase.text(numPalavras); //Muda o que está escrito
+// }
 
 function incializaContadores() {
   // campo.on('click', () => {
@@ -39,7 +40,6 @@ function incializaContadores() {
 
     var qtdCaracteres = conteudo.length;
     $("#contador-caracteres").text(qtdCaracteres); //Adiciona num de caracteres
-
     // campo.val('a') //Também adiciona valor nos inputs
   });
 }
@@ -94,6 +94,7 @@ function inicializaCronometro() {
 //   console.log('clicado');
 // })
 
+// _________________________________ESTADOS NO JOGO_________________________________
 function reiniciaJogo() {
   campo.attr("disabled", false);
   campo.val("");
@@ -109,7 +110,6 @@ function reiniciaJogo() {
   campo.removeClass("borda-vermelha");
 }
 
-// _________________________________ENDING GAME_________________________________
 function finalizaJogo() {
   campo.attr("disabled", true); // attr = setAttribute() e getAttribute()  || Já que o 'disabled' não tem valor, tenho que dizer que agora irá existir
   $("#btn-reinicia").attr("disabled", false);
@@ -120,3 +120,25 @@ function finalizaJogo() {
   inserePlacar();
   // campo.attr("rows", 50) //Colocando o dado
 }
+
+// function inserePlacar() {
+//   var corpoTabela = $(".placar").find("tbody"); //find = procura dentro dos nós do DOM = querySelector dentro de outro querySelector
+//   var usuario = "Yurii";
+//   var numPalavras = $("#contador-palavras").text();
+
+//   var linha = `<tr>
+//   <td>${usuario}</td>
+//   <td>${numPalavras}</td>
+//   <td><i class="small material-icons icons btn-remover">delete</i></td>
+//   </tr>`;
+
+//   // corpoTabela.prepend(linha) //Coloca no começo
+//   corpoTabela.append(linha)
+
+//   $(".btn-remover").click(function() { //Using 'this'
+//     console.log(this);
+//     $(this).parent().parent().remove() //Removendo o <tr>
+//   })
+// }
+
+// _______________________________________MÓDULO 2_________________________________________________

@@ -1,29 +1,40 @@
+body {
+  /* Já defini o espaço reservado para abarra de scroll para não ficar mudando o layout */
+  overflow: scroll;
+}
+
 .campo-digitacao {
-    font-size: 17.5px;
-    height: 130px;
-    border: 3px solid black;
+  font-size: 17.5px;
+  height: 130px;
+  border: 3px solid black;
 }
 
 .campo-desativado {
-    background-color: rgb(246, 191, 169);
+  background-color: rgb(246, 191, 169);
 }
 
 .borda-verde {
-    border: 7px solid rgb(8, 248, 0);
+  border: 7px solid rgb(8, 248, 0);
 }
 
 .borda-vermelha {
-    border: 7px solid red;
+  border: 7px solid red;
 }
 .frase {
-    font-size: 20px;
-    text-align: left;
+  font-size: 20px;
+  /* text-align: left; */
 }
 
 .icons {
-    vertical-align: middle;
+  vertical-align: middle;
 }
 
 .btn-remover {
-    cursor: pointer;
+  cursor: pointer;
+}
+
+/* MÓDULO 2 */
+
+.placar {
+  display: none;
 }

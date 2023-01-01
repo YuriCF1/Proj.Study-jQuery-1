@@ -10,7 +10,14 @@
   <body>
     <div class="container">
       <h1 class="center">Alura Typer</h1>
-      <p class="frase center"></p>
+      <!-- <p class="frase center">Aqui tem bem umas 7 belas palavras</p> -->
+      <p class="frase center">
+        Lorem ipsum dolor sit, amet consectetur adipisicing elit. Voluptatum
+        culpa temporibus iusto ut perferendis cumque vero, laboriosam modi neque
+        eligendi sapiente aliquid consequatur earum quidem saepe ad molestias
+        laudantium fuga.
+      </p>
+      <!--Frase principal-->
       <ul class="informacoes center">
         <li>
           <i class="small material-icons icons">description</i>
@@ -24,14 +31,23 @@
       </ul>
       <textarea class="campo-digitacao" name="" cols="30" rows="10"></textarea>
       <div class="botoes">
-        <a id="btn-reinicia" class="btn-floating btn-large waves-effect waves-light red"><i class="material-icons">restore</i></a>
+        <a
+          id="btn-reinicia"
+          class="btn-floating btn-large waves-effect waves-light red"
+          ><i class="material-icons">restore</i></a
+        >
+        <a
+          id="btn-placar"
+          class="btn-floating btn-large waves-effect waves-light green"
+          ><i class="material-icons">assignment</i></a
+        >
       </div>
       <!-- <button id="btn-reinicia">Reiniciar jogo</button> -->
       <ul class="center">
         <li><span id="contador-caracteres">0</span> Caracteres</li>
         <li><span id="contador-palavras">0</span> Palavras</li>
       </ul>
-
+      <!-- PLACAR -->
       <section class="placar">
         <h3 class="center">Placar</h3>
         <table class="centered bordered">
@@ -48,6 +64,9 @@
       </section>
       <script src="./js/jquery.js"></script>
       <script src="./js/main.js"></script>
+
+      <script src="./js/placar.js"></script>
+      <script src="./js/frase.js"></script>
 
       <!-- Seja bem vindo ao curso de jQuery :) -->
     </div>
