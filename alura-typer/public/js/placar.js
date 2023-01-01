@@ -15,13 +15,15 @@ function inserePlacar() {
     corpoTabela.append(linha)
     
     $(".btn-remover").click(function() { //Using 'this'
-        console.log(this);
-        $(this).parent().parent().remove() //Removendo o <tr>
+        var linha = $(this).parent().parent() 
+        linha.fadeOut(750) //Esmaecer //fadeIn, Out, Toggle || Não remove
+        setTimeout(() => {
+            linha.remove() //Removendo o <tr>
+        }, 750);
     })
 }
 
 // ____________________________________MOSTRA PLACAR_________________________________
-
 function mostraPlacar() { 
     // $(".placar").toggle(); //show() != hide();
     $(".placar").slideToggle(200) //Tempo que vai mostrar|| slideDown e slideUp
