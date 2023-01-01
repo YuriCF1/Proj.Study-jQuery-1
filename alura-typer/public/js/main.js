@@ -1,9 +1,11 @@
+// IDEIAS A SEREM FEITAS
+// Frases sequenciais
+
 // var frase = jQuery(".frase"); //jQuery = Dolar sign
 var tempoInicial = $("#contador-tempo").text();
 var campo = $(".campo-digitacao");
 
 // $(document).ready(() => {} //Mesma coisa do atalho abaixo = Carregar quando o html for baixado
-
 $(function () {
   atualizaTamanhoFrase();
   incializaContadores();
@@ -117,24 +119,4 @@ function finalizaJogo() {
   campo.toggleClass("campo-desativado"); //Desliga e liga a classe. Em JS= .classList.toggle('hidden-phone')
   inserePlacar();
   // campo.attr("rows", 50) //Colocando o dado
-}
-
-function inserePlacar() {
-  var corpoTabela = $(".placar").find("tbody"); //find = procura dentro dos nós do DOM = querySelector dentro de outro querySelector
-  var usuario = "Yurii";
-  var numPalavras = $("#contador-palavras").text();
-
-  var linha = `<tr>
-  <td>${usuario}</td>
-  <td>${numPalavras}</td>
-  <td><i class="small material-icons icons btn-remover">delete</i></td>
-  </tr>`;
-
-  // corpoTabela.prepend(linha) //Coloca no começo
-  corpoTabela.append(linha)
-  
-  $(".btn-remover").click(function() { //Using 'this'
-    console.log(this);
-    $(this).parent().parent().remove() //Removendo o <tr>
-  })
 }
