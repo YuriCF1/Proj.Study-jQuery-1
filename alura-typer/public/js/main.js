@@ -10,7 +10,7 @@ var campo = $(".campo-digitacao");
 $(function () {
   atualizaTamanhoFrase();
   incializaContadores();
-  inicializaCronometro();
+  // inicializaCronometro();
   $("#btn-reinicia").click(reiniciaJogo);
   //Eventos comuns como click, focus, blur, change... Tem suas funções próprias
 
@@ -25,6 +25,34 @@ $(function () {
 //   // tamanhoFrase.text() Diz o que está escrito
 //   tamanhoFrase.text(numPalavras); //Muda o que está escrito
 // }
+
+function inicializaCronometro() {
+  var tempoRestante = $("#contador-tempo").text();
+  console.log(tempoRestante);
+  $("#btn-reinicia").attr("disabled", true);
+
+  // campo.on("focus", () => {
+  campo.one("focus", () => {
+    //Executa apenas uma vez = once: true no javascrip, document.getElementById('btn').addEventListener('click', () => {console.log('Hello and goodbye');}, {once: true,});
+    var cronometroID = setInterval(() => {
+      tempoRestante--;
+      $("#contador-tempo").text(tempoRestante);
+
+      if (tempoRestante < 1) {
+        clearInterval(cronometroID);
+        finalizaJogo();
+      }
+    }, 1000);
+  });
+}
+
+// $('#btn-reinicia').on('click', () => {
+//   console.log('clicado');
+// })
+function atualizaTempoInicial(tempo) {
+  $("#contador-tempo").text(tempo);
+  inicializaCronometro();
+}
 
 function incializaContadores() {
   // campo.on('click', () => {
@@ -70,29 +98,6 @@ function inicializaBordas() {
     }
   });
 }
-
-function inicializaCronometro() {
-  var tempoRestante = $("#contador-tempo").text();
-  $("#btn-reinicia").attr("disabled", true);
-
-  // campo.on("focus", () => {
-  campo.one("focus", () => {
-    //Executa apenas uma vez = once: true no javascrip, document.getElementById('btn').addEventListener('click', () => {console.log('Hello and goodbye');}, {once: true,});
-    var cronometroID = setInterval(() => {
-      tempoRestante--;
-      $("#contador-tempo").text(tempoRestante);
-
-      if (tempoRestante < 1) {
-        clearInterval(cronometroID);
-        finalizaJogo();
-      }
-    }, 1000);
-  });
-}
-
-// $('#btn-reinicia').on('click', () => {
-//   console.log('clicado');
-// })
 
 // _________________________________ESTADOS NO JOGO_________________________________
 function reiniciaJogo() {

@@ -47,6 +47,3 @@ function mostraPlacar() {
   $(".placar").stop().slideToggle(1000); //Tempo que vai mostrar|| slideDown e slideUp ||
   // .stop() = Evita um monte de animações, executa apenas a última em clcks seguidos
 }
-
-var of = placar.offset();
-console.log(of);
