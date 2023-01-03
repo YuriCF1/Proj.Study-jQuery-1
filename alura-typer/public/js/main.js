@@ -2,7 +2,7 @@
 // Frases sequenciais
 
 // var frase = jQuery(".frase"); //jQuery = Dolar sign
-var tempoInicial = $("#contador-tempo").text();
+var tempoInicial = $("#contador-tempo");
 var campo = $(".campo-digitacao");
 
 // __________________________Começa as funções no carregamento da página
@@ -27,12 +27,11 @@ $(function () {
 // }
 
 function inicializaCronometro() {
-  var tempoRestante = $("#contador-tempo").text();
-  console.log(tempoRestante);
   $("#btn-reinicia").attr("disabled", true);
-
+  
   // campo.on("focus", () => {
-  campo.one("focus", () => {
+    campo.one("focus", () => {
+    var tempoRestante = $("#contador-tempo").text();
     //Executa apenas uma vez = once: true no javascrip, document.getElementById('btn').addEventListener('click', () => {console.log('Hello and goodbye');}, {once: true,});
     var cronometroID = setInterval(() => {
       tempoRestante--;
@@ -50,7 +49,7 @@ function inicializaCronometro() {
 //   console.log('clicado');
 // })
 function atualizaTempoInicial(tempo) {
-  tempoInicial = tempo;
+  tempoInicial.text(tempo);
   inicializaCronometro();
 }
 
@@ -73,8 +72,8 @@ function incializaContadores() {
 }
 
 function inicializaBordas() {
-  var frase = $(".frase").text();
   campo.on("input", () => {
+    var frase = $(".frase").text();
     var digitado = campo.val();
     // var comparavel = frase.substr(0, digitado.length); //Parte da frase com o mesmo numero de caracteres que foi digitado
 
@@ -108,7 +107,7 @@ function reiniciaJogo() {
 
   $("#contador-palavras").text("0");
   $("#contador-caracteres").text("0");
-  $("#contador-tempo").text(tempoInicial);
+  $("#contador-tempo").text(tempoInicial.text());
   inicializaCronometro();
 
   campo.removeClass("borda-verde");

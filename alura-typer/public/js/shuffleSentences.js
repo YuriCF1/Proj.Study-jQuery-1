@@ -22,4 +22,5 @@ function trocaFraseAleatoria(data) {
   atualizaTamanhoFrase()
   atualizaTempoInicial(data[numeroAleatorio].tempo)
   // inicializaCronometro()
+  // reiniciaJogo()
 }
