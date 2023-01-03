@@ -22,7 +22,9 @@ function inserePlacar() {
     //Using 'this'
     var linha = $(this).parent().parent();
     // linha.fadeOut(750); //Esmaecer //fadeIn, Out, Toggle || Não remove
-    linha.fadeOut(function() {linha.remove()}); //O remover só é chamado depois que o fadeOut é feito com o valor padrão de aprox 400ms
+    linha.fadeOut(function () {
+      linha.remove();
+    }); //O remover só é chamado depois que o fadeOut é feito com o valor padrão de aprox 400ms
     // setTimeout(() => {
     //   linha.remove(); //Removendo o <tr>
     // }, 750);
@@ -36,7 +38,7 @@ function scrollPlacar() {
     {
       scrollTop: `${posicaoPlacar}px`,
     },
-    1000,
+    1000
     // "swing" // https://www.w3schools.com/jquery/eff_animate.asp - Tem mais parãmetros
   );
 }

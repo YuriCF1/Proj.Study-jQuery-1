@@ -50,7 +50,7 @@ function inicializaCronometro() {
 //   console.log('clicado');
 // })
 function atualizaTempoInicial(tempo) {
-  $("#contador-tempo").text(tempo);
+  tempoInicial = tempo;
   inicializaCronometro();
 }
 
