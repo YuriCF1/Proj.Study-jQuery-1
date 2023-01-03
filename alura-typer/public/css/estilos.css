@@ -44,3 +44,7 @@ body {
   display: none;
   font-weight: bold;
 }
+
+#spinner {
+  display: none;
+}
