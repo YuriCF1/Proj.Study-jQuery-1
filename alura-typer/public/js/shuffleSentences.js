@@ -11,16 +11,21 @@ function fraseAleatoria() {
   //     "dataType"
   //   );
 
-  $.get("http://localhost:3000/frases", trocaFraseAleatoria);
+  $.get("http://localhost:3000/frases", trocaFraseAleatoria).fail(() => {
+    $("#error").toggle();
+    setTimeout(() => {
+      $("#error").toggle();
+    }, 2000);
+  });
 }
 
 function trocaFraseAleatoria(data) {
-  var numeroAleatorio = Math.floor(Math.random() * (data.length -1));
+  var numeroAleatorio = Math.floor(Math.random() * (data.length - 1));
   var frase = $(".frase");
   frase.text(data[numeroAleatorio].texto);
 
-  atualizaTamanhoFrase()
-  atualizaTempoInicial(data[numeroAleatorio].tempo)
+  atualizaTamanhoFrase();
+  atualizaTempoInicial(data[numeroAleatorio].tempo);
   // inicializaCronometro()
   // reiniciaJogo()
 }

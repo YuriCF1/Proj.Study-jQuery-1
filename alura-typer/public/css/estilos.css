@@ -38,3 +38,9 @@ body {
 .placar {
   display: none;
 }
+
+#error {
+  color: red;
+  display: none;
+  font-weight: bold;
+}
