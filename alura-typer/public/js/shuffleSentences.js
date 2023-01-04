@@ -36,7 +36,7 @@ function trocaFraseAleatoria(data) {
   // reiniciaJogo()
 }
 
-function buscaFrase() {
+async function buscaFrase () {
   $("#spinner").toggle();
   var fraseId = $("#frase-id").val();
   var dados = { id: fraseId }; //{id: '1'}
@@ -51,6 +51,20 @@ function buscaFrase() {
     .always(() => {
       $("#spinner").toggle();
     });
+
+//   // Em JS Vanilla
+//   try {
+//     var consultar = await fetch("http://localhost:3000/frases")
+//     console.log('c', consultar);
+
+//     var resposta = await consultar.json()
+//     console.log(resposta);
+    
+//     var pegandoObjecto = await resposta[2]
+//     console.log(pegandoObjecto);
+//   } catch (error) {
+    
+//   }
 }
 
 function trocaFrase(data) {
