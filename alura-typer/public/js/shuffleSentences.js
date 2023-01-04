@@ -41,7 +41,7 @@ async function buscaFrase () {
   var fraseId = $("#frase-id").val();
   var dados = { id: fraseId }; //{id: '1'}
   console.log(dados);
-  $.get("http://localhost:3000/frases", dados, trocaFrase)
+  $.get("http://localhost:3000/frases", dados, trocaFrase) //dados = dado a ser requisitado = string ou objecto json || DEPENDE DO SERVIDOR, nesse caso = {id: 1}
     .fail(() => {
       $("#error").toggle();
       setTimeout(() => {

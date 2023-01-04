@@ -1,4 +1,6 @@
 $("#btn-placar").click(mostraPlacar);
+$("#btn-sync").click(sincronizaPlacar)
+
 var placar = $(".placar");
 
 function inserePlacar() {
@@ -48,4 +50,9 @@ function mostraPlacar() {
   // $(".placar").toggle(); //show() != hide();
   $(".placar").stop().slideToggle(1000); //Tempo que vai mostrar|| slideDown e slideUp ||
   // .stop() = Evita um monte de animações, executa apenas a última em clcks seguidos
+}
+
+function sincronizaPlacar(param) {  
+  console.log('sinc');
+
 }

@@ -53,3 +53,7 @@ body {
   width: 30px;
   text-align: right;
 }
+
+#btn-sync {
+  float: right;
+}
