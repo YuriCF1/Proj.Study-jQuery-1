@@ -32,11 +32,11 @@ function trocaFraseAleatoria(data) {
 
   atualizaTamanhoFrase();
   atualizaTempoInicial(data[numeroAleatorio].tempo);
-  // inicializaCronometro()
-  // reiniciaJogo()
+  inicializaCronometro();
+  reiniciaJogo();
 }
 
-async function buscaFrase () {
+async function buscaFrase() {
   $("#spinner").toggle();
   var fraseId = $("#frase-id").val();
   var dados = { id: fraseId }; //{id: '1'}
@@ -52,23 +52,23 @@ async function buscaFrase () {
       $("#spinner").toggle();
     });
 
-//   // Em JS Vanilla
-//   try {
-//     var consultar = await fetch("http://localhost:3000/frases")
-//     console.log('c', consultar);
+  //   // Em JS Vanilla
+  //   try {
+  //     var consultar = await fetch("http://localhost:3000/frases")
+  //     console.log('c', consultar);
 
-//     var resposta = await consultar.json()
-//     console.log(resposta);
-    
-//     var pegandoObjecto = await resposta[2]
-//     console.log(pegandoObjecto);
-//   } catch (error) {
-    
-//   }
+  //     var resposta = await consultar.json()
+  //     console.log(resposta);
+
+  //     var pegandoObjecto = await resposta[2]
+  //     console.log(pegandoObjecto);
+  //   } catch (error) {
+
+  //   }
 }
 
 function trocaFrase(data) {
   $(".frase").text(data.texto);
-  atualizaTamanhoFrase()
-  atualizaTempoInicial(data.tempo)
+  atualizaTamanhoFrase();
+  atualizaTempoInicial(data.tempo);
 }

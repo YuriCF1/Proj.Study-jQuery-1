@@ -10,7 +10,7 @@ var campo = $(".campo-digitacao");
 $(function () {
   atualizaTamanhoFrase();
   incializaContadores();
-  // inicializaCronometro();
+  inicializaCronometro();
   $("#btn-reinicia").click(reiniciaJogo);
   //Eventos comuns como click, focus, blur, change... Tem suas funções próprias
 

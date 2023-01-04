@@ -1,5 +1,5 @@
 $("#btn-placar").click(mostraPlacar);
-$("#btn-sync").click(sincronizaPlacar)
+$("#btn-sync").click(sincronizaPlacar);
 
 var placar = $(".placar");
 
@@ -52,7 +52,38 @@ function mostraPlacar() {
   // .stop() = Evita um monte de animações, executa apenas a última em clcks seguidos
 }
 
-function sincronizaPlacar(param) {  
-  console.log('sinc');
+function sincronizaPlacar() {
+  var arrayPlacar = [];
+  var jogadores = $("tbody>tr"); //Todas as tr filhas diretas do tbody
 
+  jogadores.each((linha) => {
+    var linhas = jogadores[linha];
+    var trUser = $(linhas).find("td")[0];
+    var trScore = $(linhas).find("td")[1];
+
+    var usuario = $(trUser).text();
+    var pontos = $(trScore).text();
+    var score = {
+      usuario,
+      pontos,
+    };
+
+    arrayPlacar.push(score);
+    console.log("array", arrayPlacar);
+  });
+
+  var dados = {
+  placar: arrayPlacar,
+  };
+
+  $.post(
+    "http://localhost:3000/placar",
+    dados,
+    function () {
+      console.log("dados: ", dados);
+    }
+    // "dataType"
+  );
 }
+
+// ______________________________POST___________________________
