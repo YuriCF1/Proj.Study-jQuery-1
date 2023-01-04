@@ -48,3 +48,8 @@ body {
 #spinner {
   display: none;
 }
+
+#frase-id {
+  width: 30px;
+  text-align: right;
+}
