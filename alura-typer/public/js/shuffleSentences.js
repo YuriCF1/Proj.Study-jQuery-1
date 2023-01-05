@@ -5,13 +5,6 @@ $("#btn-frase").click(fraseAleatoria);
 $("#btn-frase-id").click(buscaFrase);
 
 function fraseAleatoria() {
-  //   $.get("url", data,
-  //     function (data, textStatus, jqXHR) {
-
-  //     },
-  //     "dataType"
-  //   );
-
   $("#spinner").toggle();
   $.get("http://localhost:3000/frases", trocaFraseAleatoria)
     .fail(() => {
@@ -26,14 +19,17 @@ function fraseAleatoria() {
 }
 
 function trocaFraseAleatoria(data) {
-  var numeroAleatorio = Math.floor(Math.random() * (data.length - 1));
   var frase = $(".frase");
+  var numeroAleatorio = Math.floor(Math.random() * (data.length - 1));
+  
   frase.text(data[numeroAleatorio].texto);
-
   atualizaTamanhoFrase();
-  atualizaTempoInicial(data[numeroAleatorio].tempo);
-  inicializaCronometro();
-  reiniciaJogo();
+  // atualizaTempoInicial(data[numeroAleatorio].tempo);
+  atualizaTempoInicial(2);
+
+  // DEPOIS OLHAR ISSO AQUI, MELHOR USABILIDADE
+  // inicializaCronometro(2);
+  // reiniciaJogo();
 }
 
 async function buscaFrase() {
@@ -42,15 +38,15 @@ async function buscaFrase() {
   var dados = { id: fraseId }; //{id: '1'}
   console.log(dados);
   $.get("http://localhost:3000/frases", dados, trocaFrase) //dados = dado a ser requisitado = string ou objecto json || DEPENDE DO SERVIDOR, nesse caso = {id: 1}
-    .fail(() => {
+  .fail(() => {
+    $("#error").toggle();
+    setTimeout(() => {
       $("#error").toggle();
-      setTimeout(() => {
-        $("#error").toggle();
-      }, 2000);
-    })
-    .always(() => {
-      $("#spinner").toggle();
-    });
+    }, 2000);
+  })
+  .always(() => {
+    $("#spinner").toggle();
+  });
 
   //   // Em JS Vanilla
   //   try {
@@ -71,4 +67,5 @@ function trocaFrase(data) {
   $(".frase").text(data.texto);
   atualizaTamanhoFrase();
   atualizaTempoInicial(data.tempo);
+  // atualizaTempoInicial(2);
 }

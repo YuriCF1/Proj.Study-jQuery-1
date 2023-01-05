@@ -10,11 +10,12 @@ var campo = $(".campo-digitacao");
 $(function () {
   atualizaTamanhoFrase();
   incializaContadores();
-  inicializaCronometro();
+  // inicializaCronometro();
+  inicializaBordas();
   $("#btn-reinicia").click(reiniciaJogo);
   //Eventos comuns como click, focus, blur, change... Tem suas funções próprias
-
-  inicializaBordas();
+  
+  atualizaPlacar()
 });
 
 // function atualizaTamanhoFrase() {
@@ -27,6 +28,7 @@ $(function () {
 // }
 
 function inicializaCronometro() {
+  console.log('Cronometro');
   $("#btn-reinicia").attr("disabled", true);
   
   // campo.on("focus", () => {
@@ -50,7 +52,6 @@ function inicializaCronometro() {
 // })
 function atualizaTempoInicial(tempo) {
   tempoInicial.text(tempo);
-  inicializaCronometro();
 }
 
 function incializaContadores() {
@@ -75,14 +76,15 @@ function inicializaBordas() {
   campo.on("input", () => {
     var frase = $(".frase").text();
     var digitado = campo.val();
-    // var comparavel = frase.substr(0, digitado.length); //Parte da frase com o mesmo numero de caracteres que foi digitado
-
+    
     // var ehCorreto = (digitado == comparavel);
     var digitouCorreto = frase.startsWith(digitado); //Jeito mais atual de comparar se uma string está igual a outra, no ECMA6
     campo.toggleClass("borda-verde", digitouCorreto);
     campo.toggleClass("borda-vermelha", !digitouCorreto);
-
+    
     //Acima, com o comparável e ehCorreto, é a mesma coisa do IF abaixo
+    // var comparavel = frase.substr(0, digitado.length); //Parte da frase com o mesmo numero de caracteres que foi digitado
+    
     // if (digitado == comparavel) {
     //   campo.addClass("borda-verde");
     //   campo.removeClass("borda-vermelha");
@@ -117,32 +119,13 @@ function reiniciaJogo() {
 function finalizaJogo() {
   campo.attr("disabled", true); // attr = setAttribute() e getAttribute()  || Já que o 'disabled' não tem valor, tenho que dizer que agora irá existir
   $("#btn-reinicia").attr("disabled", false);
-
+  inserePlacar();
   // campo.css("background-color","lightgray") //Pode fazer assim, mas é errado mudar css no JS
   // campo.addClass("campo-desativado")
   campo.toggleClass("campo-desativado"); //Desliga e liga a classe. Em JS= .classList.toggle('hidden-phone')
-  inserePlacar();
+
   // campo.attr("rows", 50) //Colocando o dado
 }
 
-// function inserePlacar() {
-//   var corpoTabela = $(".placar").find("tbody"); //find = procura dentro dos nós do DOM = querySelector dentro de outro querySelector
-//   var usuario = "Yurii";
-//   var numPalavras = $("#contador-palavras").text();
-
-//   var linha = `<tr>
-//   <td>${usuario}</td>
-//   <td>${numPalavras}</td>
-//   <td><i class="small material-icons icons btn-remover">delete</i></td>
-//   </tr>`;
-
-//   // corpoTabela.prepend(linha) //Coloca no começo
-//   corpoTabela.append(linha)
-
-//   $(".btn-remover").click(function() { //Using 'this'
-//     console.log(this);
-//     $(this).parent().parent().remove() //Removendo o <tr>
-//   })
-// }
 
 // _______________________________________MÓDULO 2_________________________________________________

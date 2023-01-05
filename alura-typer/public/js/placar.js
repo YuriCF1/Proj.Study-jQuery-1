@@ -3,10 +3,11 @@ $("#btn-sync").click(sincronizaPlacar);
 
 var placar = $(".placar");
 
-function inserePlacar() {
+function inserePlacar(x, y) {
+  console.log("Inseriu");
   var corpoTabela = $(".placar").find("tbody"); //find = procura dentro dos nós do DOM = querySelector dentro de outro querySelector
-  var usuario = "Yurii";
-  var numPalavras = $("#contador-palavras").text();
+  var usuario = x ? x : "Yuri";
+  var numPalavras = y ? y : $("#contador-palavras").text();
 
   var linha = `<tr>
     <td>${usuario}</td>
@@ -21,7 +22,6 @@ function inserePlacar() {
   scrollPlacar();
 
   $(".btn-remover").click(function () {
-    //Using 'this'
     var linha = $(this).parent().parent();
     // linha.fadeOut(750); //Esmaecer //fadeIn, Out, Toggle || Não remove
     linha.fadeOut(function () {
@@ -36,7 +36,6 @@ function inserePlacar() {
 function scrollPlacar() {
   var posicaoPlacar = placar.offset().top;
   $("html").animate(
-    //
     {
       scrollTop: `${posicaoPlacar}px`,
     },
@@ -73,17 +72,26 @@ function sincronizaPlacar() {
   });
 
   var dados = {
-  placar: arrayPlacar,
+    placar: arrayPlacar,
   };
 
-  $.post(
-    "http://localhost:3000/placar",
-    dados,
-    function () {
-      console.log("dados: ", dados);
-    }
-    // "dataType"
-  );
+  $.post("http://localhost:3000/placar", dados, function () {
+    console.log("dados: ", dados);
+  });
 }
 
 // ______________________________POST___________________________
+function atualizaPlacar() {
+  $.get("http://localhost:3000/placar", function (data) {
+    console.log(data);
+    $(data).each((i) => {
+      console.log("Chamado");
+      const us = data[i].usuario;
+      const pt = data[i].pontos;
+
+      // var linhaNova = inserePlacar(us, pt)
+      inserePlacar(us, pt);
+      // $("tbody").append(linhaNova)
+    });
+  });
+}
