@@ -6,6 +6,21 @@
     <link rel="stylesheet" href="css/libs/materialize.min.css" />
     <link rel="stylesheet" href="css/estilos.css" />
     <link rel="stylesheet" href="css/libs/google-fonts.css" />
+
+    <!-- Selectize -->
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/selectize.js/0.15.2/css/selectize.default.min.css"
+      integrity="sha512-pTaEn+6gF1IeWv3W1+7X7eM60TFu/agjgoHmYhAfLEU8Phuf6JKiiE8YmsNC0aCgQv4192s4Vai8YZ6VNM6vyQ=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    />
+
+    <link rel="stylesheet" href="css/selectize.css" />
+    <link rel="stylesheet" href="css/selectize.default.css" />
+
+    <!-- Materialize -->
+    <link rel="stylesheet" href="css/libs/materialize.min.css" />
   </head>
   <body>
     <div class="container">
@@ -64,6 +79,25 @@
         >
         <input id="frase-id" type="number" min="0" value="0" />
       </div>
+      <div class="control-group">
+        <form>
+          <label for="select-beast">Beast:</label>
+          <select
+            id="select-beast"
+            required
+            class="demo-default"
+            placeholder="Select a person..."
+            name="beast"
+          >
+            <option value="">Select a person...</option>
+            <option value="4">Thomas Edison</option>
+            <option value="1">Nikola</option>
+            <option value="3">Nikola Tesla</option>
+            <option value="5">Arnold Schwarzenegger</option>
+          </select>
+          <button type="submit">Submit</button>
+        </form>
+      </div>
       <!-- <button id="btn-reinicia">Reiniciar jogo</button> -->
       <ul class="center">
         <li><span id="contador-caracteres">0</span> Caracteres</li>
@@ -115,5 +149,16 @@
 
       <!-- Seja bem vindo ao curso de jQuery :) -->
     </div>
+
+    <script src="js/selectize.min.js"></script>
+    <script src="js/selectize.js"></script>
+    <script
+      src="https://cdnjs.cloudflare.com/ajax/libs/selectize.js/0.15.2/js/selectize.min.js"
+      integrity="sha512-IOebNkvA/HZjMM7MxL0NYeLYEalloZ8ckak+NDtOViP7oiYzG5vn6WVXyrJDiJPhl4yRdmNAG49iuLmhkUdVsQ=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    ></script>
+
+    <script src="js/players.js"></script>
   </body>
 </html>

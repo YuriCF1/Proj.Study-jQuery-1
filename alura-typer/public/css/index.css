@@ -22,3 +22,7 @@
 .slick-prev:before, .slick-next:before { 
 	color: black;
 }
+
+#select-beast {
+	display: block;
+}
