@@ -121,12 +121,14 @@ function reiniciaJogo() {
 function finalizaJogo() {
   campo.attr("disabled", true); // attr = setAttribute() e getAttribute()  || Já que o 'disabled' não tem valor, tenho que dizer que agora irá existir
   $("#btn-reinicia").attr("disabled", false);
-  inserePlacar();
   // campo.css("background-color","lightgray") //Pode fazer assim, mas é errado mudar css no JS
   // campo.addClass("campo-desativado")
   campo.toggleClass("campo-desativado"); //Desliga e liga a classe. Em JS= .classList.toggle('hidden-phone')
-
+  
   // campo.attr("rows", 50) //Colocando o dado
+
+  var player = $("#select-beast").val()
+  inserePlacar(player);
 }
 
 // _______________________________________MÓDULO 2_________________________________________________
