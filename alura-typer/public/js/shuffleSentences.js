@@ -7,6 +7,7 @@ $("#btn-frase-id").click(buscaFrase);
 function fraseAleatoria() {
   $("#spinner").toggle();
   $.get("http://localhost:3000/frases", trocaFraseAleatoria)
+  // $.get("http://localhost:3001/frases", trocaFraseAleatoria)
     .fail(() => {
       $("#error").toggle();
       setTimeout(() => {
