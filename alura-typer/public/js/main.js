@@ -14,8 +14,8 @@ $(function () {
   inicializaBordas();
   $("#btn-reinicia").click(reiniciaJogo);
   //Eventos comuns como click, focus, blur, change... Tem suas funções próprias
-  
-  atualizaPlacar()
+
+  atualizaPlacar();
 });
 
 // function atualizaTamanhoFrase() {
@@ -28,23 +28,25 @@ $(function () {
 // }
 
 function inicializaCronometro() {
-  console.log('Cronometro');
+  console.log("Cronometro");
   $("#btn-reinicia").attr("disabled", true);
-  
-  // campo.on("focus", () => {
-    campo.one("focus", () => {
-    var tempoRestante = $("#contador-tempo").text();
-    //Executa apenas uma vez = once: true no javascrip, document.getElementById('btn').addEventListener('click', () => {console.log('Hello and goodbye');}, {once: true,});
-    var cronometroID = setInterval(() => {
-      tempoRestante--;
-      $("#contador-tempo").text(tempoRestante);
+  var tempoRestante = $("#contador-tempo").text();
 
-      if (tempoRestante < 1) {
-        clearInterval(cronometroID);
-        finalizaJogo();
-      }
-    }, 1000);
-  });
+  if (tempoRestante > 0) {
+    // campo.on("focus", () => {
+    campo.one("focus", () => {
+      //Executa apenas uma vez = once: true no javascrip, document.getElementById('btn').addEventListener('click', () => {console.log('Hello and goodbye');}, {once: true,});
+      var cronometroID = setInterval(() => {
+        tempoRestante--;
+        $("#contador-tempo").text(tempoRestante);
+
+        if (tempoRestante < 1) {
+          clearInterval(cronometroID);
+          finalizaJogo();
+        }
+      }, 1000);
+    });
+  }
 }
 
 // $('#btn-reinicia').on('click', () => {
@@ -76,15 +78,15 @@ function inicializaBordas() {
   campo.on("input", () => {
     var frase = $(".frase").text();
     var digitado = campo.val();
-    
+
     // var ehCorreto = (digitado == comparavel);
     var digitouCorreto = frase.startsWith(digitado); //Jeito mais atual de comparar se uma string está igual a outra, no ECMA6
     campo.toggleClass("borda-verde", digitouCorreto);
     campo.toggleClass("borda-vermelha", !digitouCorreto);
-    
+
     //Acima, com o comparável e ehCorreto, é a mesma coisa do IF abaixo
     // var comparavel = frase.substr(0, digitado.length); //Parte da frase com o mesmo numero de caracteres que foi digitado
-    
+
     // if (digitado == comparavel) {
     //   campo.addClass("borda-verde");
     //   campo.removeClass("borda-vermelha");
@@ -127,5 +129,9 @@ function finalizaJogo() {
   // campo.attr("rows", 50) //Colocando o dado
 }
 
-
 // _______________________________________MÓDULO 2_________________________________________________
+// Treinando o each com this
+// $('h5').each(function() {
+//   var texto = $(this).text()
+//   console.log(texto);
+// })
