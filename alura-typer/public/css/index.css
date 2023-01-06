@@ -11,6 +11,14 @@
 	margin: 50px auto;
 }
 
-.imagem-jogo {
+/* .imagem-jogo {
 	border: 2px solid gray;
+} */
+
+.slider {
+	height: auto;
+}
+
+.slick-prev:before, .slick-next:before { 
+	color: black;
 }
