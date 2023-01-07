@@ -106,8 +106,8 @@ function inicializaBordas() {
 function reiniciaJogo() {
   campo.attr("disabled", false);
   campo.val("");
-  // campo.removeClass("campo-desativado")
-  campo.toggleClass("campo-desativado");
+  campo.removeClass("campo-desativado")
+  // campo.toggleClass("campo-desativado");
 
   $("#contador-palavras").text("0");
   $("#contador-caracteres").text("0");
