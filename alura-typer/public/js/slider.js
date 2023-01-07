@@ -7,3 +7,7 @@ $(function () {
     adaptiveHeight: true,
   });
 });
+
+$(document).ready(function () {
+  $(".tooltip").tooltipster();
+});
