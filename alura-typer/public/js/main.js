@@ -106,7 +106,7 @@ function inicializaBordas() {
 function reiniciaJogo() {
   campo.attr("disabled", false);
   campo.val("");
-  campo.removeClass("campo-desativado")
+  campo.removeClass("campo-desativado");
   // campo.toggleClass("campo-desativado");
 
   $("#contador-palavras").text("0");
@@ -124,10 +124,10 @@ function finalizaJogo() {
   // campo.css("background-color","lightgray") //Pode fazer assim, mas é errado mudar css no JS
   // campo.addClass("campo-desativado")
   campo.toggleClass("campo-desativado"); //Desliga e liga a classe. Em JS= .classList.toggle('hidden-phone')
-  
+
   // campo.attr("rows", 50) //Colocando o dado
 
-  var player = $("#select-beast").val()
+  var player = $("#select-beast").val();
   inserePlacar(player);
 }
 

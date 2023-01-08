@@ -8,6 +8,9 @@ $(function () {
   });
 });
 
+Tooltipster
 $(document).ready(function () {
-  $(".tooltip").tooltipster();
+  $(".tooltip").tooltipster({
+    trigger: "custom",
+  });
 });
