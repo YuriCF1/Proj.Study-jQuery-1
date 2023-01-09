@@ -18,7 +18,7 @@ $(function () {
   atualizaPlacar();
 
   $(".tooltip").tooltipster({
-    // trigger: "custom",
+    trigger: "custom",
     // animation: "fade",
     // delay: 200,
   });

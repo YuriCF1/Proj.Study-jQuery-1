@@ -78,9 +78,11 @@ function sincronizaPlacar() {
   $.post("http://localhost:3000/placar", dados, function () {
     console.log("dados: ", dados);
 
-  //   $(".tooltip").tooltipster("open");
-  // }).always(() => {
-  //   $(".tooltip").tooltipster("close");
+    $(".tooltip").tooltipster("open");
+  }).always(() => {
+    setTimeout(() => {
+      $(".tooltip").tooltipster("close");
+    }, 2000);
   });
 }
 
