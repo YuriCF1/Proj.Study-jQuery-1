@@ -16,6 +16,12 @@ $(function () {
   //Eventos comuns como click, focus, blur, change... Tem suas funções próprias
 
   atualizaPlacar();
+
+  $(".tooltip").tooltipster({
+    // trigger: "custom",
+    // animation: "fade",
+    // delay: 200,
+  });
 });
 
 // function atualizaTamanhoFrase() {

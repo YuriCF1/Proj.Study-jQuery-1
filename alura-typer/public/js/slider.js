@@ -7,10 +7,3 @@ $(function () {
     adaptiveHeight: true,
   });
 });
-
-Tooltipster
-$(document).ready(function () {
-  $(".tooltip").tooltipster({
-    trigger: "custom",
-  });
-});

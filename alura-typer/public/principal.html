@@ -21,17 +21,15 @@
 
     <!-- Materialize -->
     <link rel="stylesheet" href="css/libs/materialize.min.css" />
-
+    
     <!-- Tolltipster -->
-    <!-- <link rel="stylesheet" type="text/css" href="css/tooltipster.css" /> -->
-    <link
-      rel="stylesheet"
-      type="stylesheet"
-      href="css/tooltipster.bundle.min.css"
-    />
-
-    <!-- <script type="text/javascript" src="http://code.jquery.com/jquery-1.7.0.min.js"></script> -->
-    <!-- <script type="text/javascript" src="js/jquery.tooltipster.min.js"></script> -->
+    <!-- <link
+    rel="stylesheet"
+    type="stylesheet"
+    href="css/tooltipster.bundle.min.css"
+    /> -->
+    <!-- <link rel="stylesheet" href="css/tooltipster.main.css"/> -->
+    <link rel="stylesheet" href="css/libs/tooltipster.bundle.min.css"/>
   </head>
   <body>
     <div class="container">
@@ -85,7 +83,7 @@
         >
         <a
           id="btn-sync"
-          class="btn-floating btn-large waves-effect waves-light purple tooltip"
+          class="btn-floating btn-large waves-effect waves-light purple"
           ><i class="material-icons tooltip" title="Sincronizado com sucesso!"
             >swap_vert</i
           ></a
@@ -173,8 +171,16 @@
     <script src="js/players.js"></script>
 
     <script src="http://code.jquery.com/jquery-1.7.0.min.js"></script>
-    <script type="text/javascript" src="js/tooltipster.main.min.js"></script>
+    <script type="text/javascript" src="js/tooltipster.bundle.min.js"></script>
+    <script type="text/javascript" src="js/tooltipster.min.js"></script>
 
     <script src="js/main.js"></script>
+    <script src="js/main.js"></script>
+
+    <!-- <script>
+      $(document).ready(function() {
+          $('.tooltip').tooltipster();
+      });
+  </script> -->
   </body>
 </html>
