@@ -4,6 +4,7 @@
 // var frase = jQuery(".frase"); //jQuery = Dolar sign
 var tempoInicial = $("#contador-tempo");
 var campo = $(".campo-digitacao");
+var start;
 
 // __________________________Começa as funções no carregamento da página
 // $(document).ready(() => {} //Mesma coisa do atalho abaixo = Carregar quando o html for baixado
@@ -15,7 +16,7 @@ $(function () {
   $("#btn-reinicia").click(reiniciaJogo);
   //Eventos comuns como click, focus, blur, change... Tem suas funções próprias
 
-  atualizaPlacar();
+  // atualizaPlacar();
 
   $(".tooltip").tooltipster({
     trigger: "custom",
@@ -38,7 +39,7 @@ function inicializaCronometro() {
   $("#btn-reinicia").attr("disabled", true);
   var tempoRestante = $("#contador-tempo").text();
 
-  if (tempoRestante > 0) {
+  if (tempoRestante > 0 && start) {
     // campo.on("focus", () => {
     campo.one("focus", () => {
       //Executa apenas uma vez = once: true no javascrip, document.getElementById('btn').addEventListener('click', () => {console.log('Hello and goodbye');}, {once: true,});
@@ -122,6 +123,8 @@ function reiniciaJogo() {
 
   campo.removeClass("borda-verde");
   campo.removeClass("borda-vermelha");
+
+  start = true
 }
 
 function finalizaJogo() {
@@ -130,11 +133,12 @@ function finalizaJogo() {
   // campo.css("background-color","lightgray") //Pode fazer assim, mas é errado mudar css no JS
   // campo.addClass("campo-desativado")
   campo.toggleClass("campo-desativado"); //Desliga e liga a classe. Em JS= .classList.toggle('hidden-phone')
-
+  
   // campo.attr("rows", 50) //Colocando o dado
-
+  
   var player = $("#select-beast").val();
   inserePlacar(player);
+  start = false
 }
 
 // _______________________________________MÓDULO 2_________________________________________________

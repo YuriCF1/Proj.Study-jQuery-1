@@ -77,8 +77,10 @@ function sincronizaPlacar() {
 
   $.post("http://localhost:3000/placar", dados, function () {
     console.log("dados: ", dados);
+    $(".tooltip").tooltipster("open").tooltipster("content", "Sucesso ao sincronizar")
+  }).fail(() => {
+    $(".tooltip").tooltipster("open").tooltipster("content", "Falha ao sincronizar")
 
-    $(".tooltip").tooltipster("open");
   }).always(() => {
     setTimeout(() => {
       $(".tooltip").tooltipster("close");
@@ -89,15 +91,17 @@ function sincronizaPlacar() {
 // ______________________________POST___________________________
 function atualizaPlacar() {
   $.get("http://localhost:3000/placar", function (data) {
-    console.log(data);
+    // console.log(data);
     $(data).each((i) => {
       console.log("Chamado");
-      const us = data[i].usuario;
+      console.log(data.length);
+      console.log(data[i]);
+      const us = data[i].usuario; 
       const pt = data[i].pontos;
 
       // var linhaNova = inserePlacar(us, pt)
-      inserePlacar(us, pt);
       // $("tbody").append(linhaNova)
+      inserePlacar(us, pt);
     });
   });
 }
